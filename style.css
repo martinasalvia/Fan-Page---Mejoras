@@ -871,16 +871,16 @@ body {
 
 @media (max-width: 480px) {
   .category-card img {
-    height: 220px;          
+    height: 220px;
     object-fit: cover;
   }
 
   .category-title {
-    bottom: 12px;           
+    bottom: 12px;
     left: 12px;
-    padding: 6px 12px;      
-    font-size: 14px;        
-    letter-spacing: 0.5px;  
+    padding: 6px 12px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
   }
 }
 

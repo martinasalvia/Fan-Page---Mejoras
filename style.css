@@ -719,11 +719,9 @@ body {
   .temporadas-scroll { max-width: 1000px; }
 }
 
-/* Desktop amplio: 3 columnas en grilla */
+/* Desktop amplio: 3 columnas en grilla (≥993px) */
 @media (min-width: 993px) {
-  .cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .cards-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Tablets y móviles grandes (≤768px) */
@@ -748,17 +746,9 @@ body {
   .cards-grid .card img { height: 240px; }
 
   /* Ajustes de Personajes */
-  .personajes-scroll .card {
-    flex: 0 0 140px;
-    padding: 10px;
-  }
-  .personajes-scroll .card img {
-    height: 160px;
-    object-fit: cover;
-  }
-  .personajes-scroll .card h3 {
-    font-size: 0.95rem;
-  }
+  .personajes-scroll .card { flex: 0 0 140px; padding: 10px; }
+  .personajes-scroll .card img { height: 160px; object-fit: cover; }
+  .personajes-scroll .card h3 { font-size: 0.95rem; }
 
   /* Ajustes de modales */
   .modal { padding: 40px 16px; }
@@ -771,6 +761,38 @@ body {
   .modal-content p,
   .modal-content .frase { font-size: 0.95rem; }
   .close { font-size: 1.6rem; }
+
+  /* Menú hamburguesa — panel lateral */
+  .menu-btn { display: block; }
+
+  .main-nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;          /* centra los ítems horizontalmente */
+    gap: 16px;
+    padding: 60px 20px;
+    position: fixed;
+    top: 0;
+    right: -260px;                /* fuera de pantalla */
+    width: 260px;
+    height: 100%;
+    background: #222;
+    box-shadow: -12px 0 24px rgba(0,0,0,0.4);
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .main-nav ul.activo { display: flex; right: 0; }
+
+  /* Centrar texto dentro de cada link (promociones) */
+  .main-nav ul li { width: 100%; }
+  .main-nav ul li a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .header-inner { justify-content: space-between; align-items: center; }
 }
 
 /* Móviles pequeños (≤480px) */
@@ -793,56 +815,22 @@ body {
   footer { padding: 16px; margin-top: 32px; }
 
   /* Personajes aún más compactos */
-  .personajes-scroll .card {
-    flex: 0 0 120px;
-    padding: 8px;
-  }
-  .personajes-scroll .card img {
-    height: 140px;
-  }
-  .personajes-scroll .card h3 {
-    font-size: 0.85rem;
-  }
+  .personajes-scroll .card { flex: 0 0 120px; padding: 8px; }
+  .personajes-scroll .card img { height: 140px; }
+  .personajes-scroll .card h3 { font-size: 0.85rem; }
 
   /* Modales más compactos */
-  .modal-content {
-    padding: 20px;
-    max-width: 95%;
-  }
+  .modal-content { padding: 20px; max-width: 95%; }
   .modal-content h2 { font-size: 1.4rem; }
   .modal-content p,
   .modal-content .frase { font-size: 0.9rem; }
   .close { font-size: 1.4rem; }
-}
 
-/* Responsive: convierte el ul en panel lateral y usa la clase "activo" */
-@media (max-width: 768px) {
-  .menu-btn { display: block; }
-
-  .main-nav ul {
-    display: none;            /* oculto por defecto en móvil */
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: -260px;            /* fuera de pantalla */
-    width: 260px;
-    height: 100%;
-    background: #222;
-    padding: 60px 20px;
-    gap: 16px;
-    box-shadow: -12px 0 24px rgba(0,0,0,0.4);
-    transition: right 0.3s ease;
-    z-index: 1000;
-  }
-
-  .main-nav ul.activo {
-    display: flex;
-    right: 0;                 /* entra con slide-in */
+  /* Indumentaria: 2 columnas en móvil */
+  .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* dos columnas en móvil */
+    gap: 12px;
   }
 }
 
-@media (max-width: 768px) {
-  .close-btn {
-    display: block;
-  }
-}
